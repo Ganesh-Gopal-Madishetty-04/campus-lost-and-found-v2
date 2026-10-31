@@ -5,6 +5,7 @@ const fs = require('fs');
 const crypto = require('crypto');
 const db = require('../db/database');
 const { requireAuth } = require('../middleware/auth');
+const alerts = require('../services/alerts');
 
 const router = express.Router();
 
@@ -82,6 +83,7 @@ router.post('/', requireAuth, handleUpload, (req, res) => {
     .run(req.user.id, type, title, category, description, location_text, event_date, image_path);
 
   const report = db.prepare(SELECT_REPORT + ' WHERE r.id = ?').get(result.lastInsertRowid);
+  alerts.onNewReport(result.lastInsertRowid);
   res.status(201).json({ report });
 });
 

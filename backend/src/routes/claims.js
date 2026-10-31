@@ -1,6 +1,7 @@
 const express = require('express');
 const db = require('../db/database');
 const { requireAuth } = require('../middleware/auth');
+const alerts = require('../services/alerts');
 
 const router = express.Router();
 
@@ -37,6 +38,7 @@ router.post('/reports/:id/claims', requireAuth, (req, res) => {
   const claim = db
     .prepare('SELECT id, report_id, message, status, created_at FROM claims WHERE id = ?')
     .get(result.lastInsertRowid);
+  alerts.onNewClaim(claim.id);
   res.status(201).json({ claim });
 });
 
@@ -128,6 +130,7 @@ router.patch('/claims/:id', requireAuth, (req, res) => {
        WHERE c.id = ?`
     )
     .get(id);
+  alerts.onClaimDecided(id);
   res.json({ claim: updated });
 });
 

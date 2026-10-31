@@ -16,6 +16,7 @@ app.use('/api/auth', require('./routes/auth'));
 app.use('/api/reports', require('./routes/reports'));
 app.use('/api', require('./routes/claims'));
 app.use('/api', require('./routes/matches'));
+app.use('/api/notifications', require('./routes/notifications'));
 
 // unknown route -> JSON, not an HTML page
 app.use((req, res) => {
