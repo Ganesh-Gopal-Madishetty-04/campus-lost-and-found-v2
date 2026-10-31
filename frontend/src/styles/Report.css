@@ -1,0 +1,69 @@
+
+.report-page {
+  min-height: 100vh;
+  background: #F8FAFF;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.report-box {
+  width: 100%;
+  max-width: 550px;
+  background: white;
+  padding: 35px;
+  border-radius: 15px;
+  box-shadow: 0 5px 25px #00000012;
+}
+
+.report-box h1 {
+  color: #0B1026;
+  margin: 25px 0 10px;
+}
+
+.report-box p {
+  color: #666;
+  margin-bottom: 25px;
+}
+
+.report-box label {
+  display: block;
+  margin: 16px 0 8px;
+  font-weight: bold;
+}
+
+.report-box input,
+.report-box select,
+.report-box textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font: inherit;
+}
+
+.report-box textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.report-box button {
+  cursor: pointer;
+}
+
+.report-box form button {
+  width: 100%;
+  padding: 13px;
+  margin-top: 25px;
+  background: #0B1026;
+  color: white;
+  border: none;
+  border-radius: 8px;
+}
+
+.back-btn {
+  background: transparent;
+  border: none;
+  color: #8060D5;
+  font-size: 15px;
+}
