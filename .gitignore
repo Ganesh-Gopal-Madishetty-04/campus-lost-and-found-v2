@@ -4,3 +4,6 @@ backend/uploads/
 *.db
 dist/
 .DS_Store
+*.db-shm
+*.db-wal
+*.db-journal
